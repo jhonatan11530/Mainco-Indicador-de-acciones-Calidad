@@ -43,6 +43,8 @@ namespace Indicador_de_acciones_Calidad
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Indicador_interno supervisador = new Indicador_interno();
+            supervisador.Show();
             this.Close();
         }
 

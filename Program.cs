@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Indicador_de_acciones_Calidad.Vistas;
+using System;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad
@@ -13,7 +14,7 @@ namespace Indicador_de_acciones_Calidad
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Indicador_interno());
+            Application.Run(new Separador());
         }
     }
 }
