@@ -20,9 +20,9 @@ namespace Indicador_de_acciones_Calidad.DataSets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet3")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet3 : global::System.Data.DataSet {
+    public partial class DataSet1 : global::System.Data.DataSet {
         
         private Indicador_accionesDataTable tableIndicador_acciones;
         
@@ -30,7 +30,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DataSet3() {
+        public DataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DataSet3(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet3 cln = ((DataSet3)(base.Clone()));
+            DataSet1 cln = ((DataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace Indicador_de_acciones_Calidad.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet3";
+            this.DataSetName = "DataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet3.xsd";
+            this.Namespace = "http://tempuri.org/DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableIndicador_acciones = new Indicador_accionesDataTable();
@@ -225,7 +225,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet3 ds = new DataSet3();
+            DataSet1 ds = new DataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -293,19 +293,15 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             private global::System.Data.DataColumn columnsolicito;
             
+            private global::System.Data.DataColumn columnfecha_enviado;
+            
             private global::System.Data.DataColumn columnfecha_respuesta;
             
             private global::System.Data.DataColumn columnfecha_cierre;
             
-            private global::System.Data.DataColumn columnfecha_cierre_real;
-            
             private global::System.Data.DataColumn columndias;
             
             private global::System.Data.DataColumn columnestado;
-            
-            private global::System.Data.DataColumn columnplanes;
-            
-            private global::System.Data.DataColumn columnobservaciones;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -398,6 +394,14 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fecha_enviadoColumn {
+                get {
+                    return this.columnfecha_enviado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn fecha_respuestaColumn {
                 get {
                     return this.columnfecha_respuesta;
@@ -414,14 +418,6 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fecha_cierre_realColumn {
-                get {
-                    return this.columnfecha_cierre_real;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn diasColumn {
                 get {
                     return this.columndias;
@@ -433,22 +429,6 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             public global::System.Data.DataColumn estadoColumn {
                 get {
                     return this.columnestado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn planesColumn {
-                get {
-                    return this.columnplanes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn observacionesColumn {
-                get {
-                    return this.columnobservaciones;
                 }
             }
             
@@ -489,7 +469,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Indicador_accionesRow AddIndicador_accionesRow(string MES, int N_conforme, string detallado, string especifico, string area, string responsable, string solicito, string fecha_respuesta, string fecha_cierre, string fecha_cierre_real, int dias, string estado, string planes, string observaciones) {
+            public Indicador_accionesRow AddIndicador_accionesRow(string MES, int N_conforme, string detallado, string especifico, string area, string responsable, string solicito, string fecha_enviado, string fecha_respuesta, string fecha_cierre, int dias, string estado) {
                 Indicador_accionesRow rowIndicador_accionesRow = ((Indicador_accionesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MES,
@@ -499,13 +479,11 @@ namespace Indicador_de_acciones_Calidad.DataSets {
                         area,
                         responsable,
                         solicito,
+                        fecha_enviado,
                         fecha_respuesta,
                         fecha_cierre,
-                        fecha_cierre_real,
                         dias,
-                        estado,
-                        planes,
-                        observaciones};
+                        estado};
                 rowIndicador_accionesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIndicador_accionesRow);
                 return rowIndicador_accionesRow;
@@ -535,13 +513,11 @@ namespace Indicador_de_acciones_Calidad.DataSets {
                 this.columnarea = base.Columns["area"];
                 this.columnresponsable = base.Columns["responsable"];
                 this.columnsolicito = base.Columns["solicito"];
+                this.columnfecha_enviado = base.Columns["fecha_enviado"];
                 this.columnfecha_respuesta = base.Columns["fecha_respuesta"];
                 this.columnfecha_cierre = base.Columns["fecha_cierre"];
-                this.columnfecha_cierre_real = base.Columns["fecha_cierre_real"];
                 this.columndias = base.Columns["dias"];
                 this.columnestado = base.Columns["estado"];
-                this.columnplanes = base.Columns["planes"];
-                this.columnobservaciones = base.Columns["observaciones"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,27 +537,23 @@ namespace Indicador_de_acciones_Calidad.DataSets {
                 base.Columns.Add(this.columnresponsable);
                 this.columnsolicito = new global::System.Data.DataColumn("solicito", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsolicito);
+                this.columnfecha_enviado = new global::System.Data.DataColumn("fecha_enviado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha_enviado);
                 this.columnfecha_respuesta = new global::System.Data.DataColumn("fecha_respuesta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_respuesta);
                 this.columnfecha_cierre = new global::System.Data.DataColumn("fecha_cierre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_cierre);
-                this.columnfecha_cierre_real = new global::System.Data.DataColumn("fecha_cierre_real", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfecha_cierre_real);
                 this.columndias = new global::System.Data.DataColumn("dias", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndias);
                 this.columnestado = new global::System.Data.DataColumn("estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestado);
-                this.columnplanes = new global::System.Data.DataColumn("planes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnplanes);
-                this.columnobservaciones = new global::System.Data.DataColumn("observaciones", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnobservaciones);
                 this.columnMES.MaxLength = 10;
-                this.columndetallado.MaxLength = 30;
-                this.columnespecifico.MaxLength = 30;
                 this.columnarea.MaxLength = 15;
+                this.columnresponsable.MaxLength = 30;
+                this.columnsolicito.MaxLength = 30;
+                this.columnfecha_enviado.MaxLength = 15;
                 this.columnfecha_respuesta.MaxLength = 15;
                 this.columnfecha_cierre.MaxLength = 15;
-                this.columnfecha_cierre_real.MaxLength = 15;
                 this.columnestado.MaxLength = 15;
             }
             
@@ -650,7 +622,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet3 ds = new DataSet3();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -837,6 +809,23 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string fecha_enviado {
+                get {
+                    try {
+                        return ((string)(this[this.tableIndicador_acciones.fecha_enviadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha_enviado\' de la tabla \'Indicador_acciones\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableIndicador_acciones.fecha_enviadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string fecha_respuesta {
                 get {
                     try {
@@ -871,23 +860,6 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string fecha_cierre_real {
-                get {
-                    try {
-                        return ((string)(this[this.tableIndicador_acciones.fecha_cierre_realColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha_cierre_real\' de la tabla \'Indicador_acciones\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableIndicador_acciones.fecha_cierre_realColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int dias {
                 get {
                     try {
@@ -915,39 +887,6 @@ namespace Indicador_de_acciones_Calidad.DataSets {
                 }
                 set {
                     this[this.tableIndicador_acciones.estadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string planes {
-                get {
-                    try {
-                        return ((string)(this[this.tableIndicador_acciones.planesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'planes\' de la tabla \'Indicador_acciones\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableIndicador_acciones.planesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string observaciones {
-                get {
-                    try {
-                        return ((string)(this[this.tableIndicador_acciones.observacionesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'observaciones\' de la tabla \'Indicador_acciones\' es DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableIndicador_acciones.observacionesColumn] = value;
                 }
             }
             
@@ -1037,6 +976,18 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isfecha_enviadoNull() {
+                return this.IsNull(this.tableIndicador_acciones.fecha_enviadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setfecha_enviadoNull() {
+                this[this.tableIndicador_acciones.fecha_enviadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isfecha_respuestaNull() {
                 return this.IsNull(this.tableIndicador_acciones.fecha_respuestaColumn);
             }
@@ -1061,18 +1012,6 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isfecha_cierre_realNull() {
-                return this.IsNull(this.tableIndicador_acciones.fecha_cierre_realColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setfecha_cierre_realNull() {
-                this[this.tableIndicador_acciones.fecha_cierre_realColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdiasNull() {
                 return this.IsNull(this.tableIndicador_acciones.diasColumn);
             }
@@ -1093,30 +1032,6 @@ namespace Indicador_de_acciones_Calidad.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetestadoNull() {
                 this[this.tableIndicador_acciones.estadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsplanesNull() {
-                return this.IsNull(this.tableIndicador_acciones.planesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetplanesNull() {
-                this[this.tableIndicador_acciones.planesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsobservacionesNull() {
-                return this.IsNull(this.tableIndicador_acciones.observacionesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetobservacionesNull() {
-                this[this.tableIndicador_acciones.observacionesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1155,7 +1070,7 @@ namespace Indicador_de_acciones_Calidad.DataSets {
         }
     }
 }
-namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
+namespace Indicador_de_acciones_Calidad.DataSets.DataSet1TableAdapters {
     
     
     /// <summary>
@@ -1286,32 +1201,31 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
             tableMapping.ColumnMappings.Add("area", "area");
             tableMapping.ColumnMappings.Add("responsable", "responsable");
             tableMapping.ColumnMappings.Add("solicito", "solicito");
+            tableMapping.ColumnMappings.Add("fecha_enviado", "fecha_enviado");
             tableMapping.ColumnMappings.Add("fecha_respuesta", "fecha_respuesta");
             tableMapping.ColumnMappings.Add("fecha_cierre", "fecha_cierre");
-            tableMapping.ColumnMappings.Add("fecha_cierre_real", "fecha_cierre_real");
             tableMapping.ColumnMappings.Add("dias", "dias");
             tableMapping.ColumnMappings.Add("estado", "estado");
-            tableMapping.ColumnMappings.Add("planes", "planes");
-            tableMapping.ColumnMappings.Add("observaciones", "observaciones");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [proyecto].[dbo].[Indicador_acciones] ([MES], [N_conforme], [detallado], [especifico], [area], [responsable], [solicito], [fecha_respuesta], [fecha_cierre], [fecha_cierre_real], [dias], [estado], [planes], [observaciones]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [proyecto].[dbo].[Indicador_acciones] ([MES], [N_conforme], [detallad" +
+                "o], [especifico], [area], [responsable], [solicito], [fecha_enviado], [fecha_res" +
+                "puesta], [fecha_cierre], [dias], [estado]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
+                " ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MES", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MES", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("N_conforme", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "N_conforme", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("detallado", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "detallado", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("especifico", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "especifico", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("detallado", global::System.Data.OleDb.OleDbType.LongVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "detallado", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("especifico", global::System.Data.OleDb.OleDbType.LongVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "especifico", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("area", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "area", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("responsable", global::System.Data.OleDb.OleDbType.LongVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "responsable", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("solicito", global::System.Data.OleDb.OleDbType.LongVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "solicito", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("responsable", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "responsable", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("solicito", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "solicito", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("fecha_enviado", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "fecha_enviado", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("fecha_respuesta", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "fecha_respuesta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("fecha_cierre", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "fecha_cierre", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("fecha_cierre_real", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "fecha_cierre_real", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("dias", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dias", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("estado", global::System.Data.OleDb.OleDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "estado", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("planes", global::System.Data.OleDb.OleDbType.LongVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "planes", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("observaciones", global::System.Data.OleDb.OleDbType.LongVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "observaciones", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1329,8 +1243,8 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"MES\", \"N_conforme\", \"detallado\", \"especifico\", \"area\", \"responsable\", \"so" +
-                "licito\", \"fecha_respuesta\", \"fecha_cierre\", \"fecha_cierre_real\", \"dias\", \"estado" +
-                "\", \"planes\", \"observaciones\" FROM \"dbo\".\"Indicador_acciones\"";
+                "licito\", \"fecha_enviado\", \"fecha_respuesta\", \"fecha_cierre\", \"dias\", \"estado\" FR" +
+                "OM \"dbo\".\"Indicador_acciones\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1338,7 +1252,7 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet3.Indicador_accionesDataTable dataTable) {
+        public virtual int Fill(DataSet1.Indicador_accionesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1351,9 +1265,9 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet3.Indicador_accionesDataTable GetData() {
+        public virtual DataSet1.Indicador_accionesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet3.Indicador_accionesDataTable dataTable = new DataSet3.Indicador_accionesDataTable();
+            DataSet1.Indicador_accionesDataTable dataTable = new DataSet1.Indicador_accionesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1361,14 +1275,14 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet3.Indicador_accionesDataTable dataTable) {
+        public virtual int Update(DataSet1.Indicador_accionesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet3 dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Indicador_acciones");
         }
         
@@ -1391,7 +1305,7 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string MES, global::System.Nullable<int> N_conforme, string detallado, string especifico, string area, string responsable, string solicito, string fecha_respuesta, string fecha_cierre, string fecha_cierre_real, global::System.Nullable<int> dias, string estado, string planes, string observaciones) {
+        public virtual int Insert(string MES, global::System.Nullable<int> N_conforme, string detallado, string especifico, string area, string responsable, string solicito, string fecha_enviado, string fecha_respuesta, string fecha_cierre, global::System.Nullable<int> dias, string estado) {
             if ((MES == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1434,23 +1348,23 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(solicito));
             }
-            if ((fecha_respuesta == null)) {
+            if ((fecha_enviado == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(fecha_respuesta));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(fecha_enviado));
             }
-            if ((fecha_cierre == null)) {
+            if ((fecha_respuesta == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(fecha_cierre));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(fecha_respuesta));
             }
-            if ((fecha_cierre_real == null)) {
+            if ((fecha_cierre == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(fecha_cierre_real));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(fecha_cierre));
             }
             if ((dias.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = ((int)(dias.Value));
@@ -1463,18 +1377,6 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = ((string)(estado));
-            }
-            if ((planes == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(planes));
-            }
-            if ((observaciones == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(observaciones));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1584,7 +1486,7 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._indicador_accionesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Indicador_acciones.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1603,7 +1505,7 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._indicador_accionesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Indicador_acciones.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1621,7 +1523,7 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._indicador_accionesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Indicador_acciones.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1663,7 +1565,7 @@ namespace Indicador_de_acciones_Calidad.DataSets.DataSet3TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DataSet3 dataSet) {
+        public virtual int UpdateAll(DataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

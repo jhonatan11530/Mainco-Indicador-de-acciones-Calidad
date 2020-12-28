@@ -55,10 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\Conexion.cs" />
-    <Compile Include="DataSets\DataSet3.Designer.cs">
+    <Compile Include="DataSets\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet3.xsd</DependentUpon>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\DataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,16 +127,16 @@
     <EmbeddedResource Include="Vistas\Supervisador_interno.resx">
       <DependentUpon>Supervisador_interno.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSets\DataSet3.xsc">
-      <DependentUpon>DataSet3.xsd</DependentUpon>
+    <None Include="DataSets\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="DataSets\DataSet3.xsd">
+    <None Include="DataSets\DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSets\DataSet3.xss">
-      <DependentUpon>DataSet3.xsd</DependentUpon>
+    <None Include="DataSets\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="DataSets\DataSet4.xsc">
       <DependentUpon>DataSet4.xsd</DependentUpon>

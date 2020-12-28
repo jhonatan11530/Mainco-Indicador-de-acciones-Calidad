@@ -1,23 +1,19 @@
-﻿using Indicador_de_acciones_Calidad.Properties;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad
 {
     public partial class Indicador_interno : Form
     {
+#pragma warning disable CS0169 // El campo 'Indicador_interno.xlWS' nunca se usa
         private readonly object xlWS;
+#pragma warning restore CS0169 // El campo 'Indicador_interno.xlWS' nunca se usa
         public Indicador_interno()
         {
             ejecutar();
@@ -31,22 +27,22 @@ namespace Indicador_de_acciones_Calidad
 
 
             string[] ESTADO = { "ABIERTO", "CERRADO" };
-            string[] Centros = { "Paquetes", "Produccion", "Calidad", "Semiautomaticas", "Corte", "Financiero", "Comercio Exterior", "Costos", "Abastecimiento", "Compras", "Logistica", "Externos", "Ambiental", "Sistemas", "Comercial", "Gestión Humana", "Gerencia"};
+            string[] Centros = { "Paquetes", "Produccion", "Calidad", "Semiautomaticas", "Corte", "Financiero", "Comercio Exterior", "Costos", "Abastecimiento", "Compras", "Logistica", "Externos", "Ambiental", "Sistemas", "Comercial", "Gestión Humana", "Gerencia" };
 
-                for (int i = 0; i < Centros.Length; i++)
-                {
-                    comboBox1.Items.Add(Centros[i]);
-                }
+            for (int i = 0; i < Centros.Length; i++)
+            {
+                comboBox1.Items.Add(Centros[i]);
+            }
 
-                for (int i = 0; i < Centros.Length; i++)
-                {
-                    comboBox3.Items.Add(Centros[i]);
-                }
-                for (int i = 0; i < ESTADO.Length; i++)
-                {
-                    comboBox5.Items.Add(ESTADO[i]);
-                    comboBox5.SelectedIndex = +0;
-                }
+            for (int i = 0; i < Centros.Length; i++)
+            {
+                comboBox3.Items.Add(Centros[i]);
+            }
+            for (int i = 0; i < ESTADO.Length; i++)
+            {
+                comboBox5.Items.Add(ESTADO[i]);
+                comboBox5.SelectedIndex = +0;
+            }
         }
         private void SetStartup()
         {
@@ -71,7 +67,8 @@ namespace Indicador_de_acciones_Calidad
             {
                 MessageBox.Show("LOS CAMPOS ESTAN VACIOS");
             }
-            else { 
+            else
+            {
                 DialogResult btn = MessageBox.Show("LOS DATOS ESTAN CORRECTOS ?", "VERIFICACION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (btn == DialogResult.Yes)
                 {
@@ -84,7 +81,8 @@ namespace Indicador_de_acciones_Calidad
             }
         }
 
-        public void insertar() {
+        public void insertar()
+        {
 
             string mes = textBox1.Text;
             string no_conforme = textBox2.Text;
@@ -98,13 +96,13 @@ namespace Indicador_de_acciones_Calidad
             string fechaCierreAccion = "NO ASIGNADO";
             string diaCierre = textBox5.Text;
             string estado = comboBox5.SelectedItem.ToString();
-
+            string verificado = "INTERNO";
 
             Conexion conexion = new Conexion();
-            SqlConnection connecting = conexion.connecting();       
+            SqlConnection connecting = conexion.connecting();
             try
             {
-                string consulta = "INSERT INTO proyecto.dbo.Indicador_acciones (MES,N_conforme,detallado,especifico,area,responsable,solicito,fecha_enviado,fecha_respuesta,fecha_cierre,dias,estado) VALUES ('" + mes + "','" + no_conforme + "','" + detalle + "','" + detalle_especifico + "','" + area + "','" + responsable + "','" + solicito + "','" + fechaEnvio + "','" + fechaCierre + "','" + fechaCierreAccion + "','" + diaCierre + "','" + estado + "' ) "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                string consulta = "INSERT INTO proyecto.dbo.Indicador_acciones (MES,N_conforme,detallado,especifico,area,responsable,solicito,fecha_enviado,fecha_respuesta,fecha_cierre,dias,estado,verificado) VALUES ('" + mes + "','" + no_conforme + "','" + detalle + "','" + detalle_especifico + "','" + area + "','" + responsable + "','" + solicito + "','" + fechaEnvio + "','" + fechaCierre + "','" + fechaCierreAccion + "','" + diaCierre + "','" + estado + "','" + verificado + "' ) "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                 SqlCommand comando = new SqlCommand(consulta)
                 {
                     Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
@@ -136,7 +134,8 @@ namespace Indicador_de_acciones_Calidad
 
         }
 
-        public void Consulta() {
+        public void Consulta()
+        {
 
             Conexion conexion = new Conexion();
             SqlConnection connecting = conexion.connecting();
@@ -144,7 +143,7 @@ namespace Indicador_de_acciones_Calidad
             DataTable dt;
             try
             {
-                da = new SqlDataAdapter("SELECT MES,N_conforme,responsable,solicito,fecha_enviado,fecha_respuesta,fecha_cierre FROM [proyecto].[dbo].[Indicador_acciones]", connecting);
+                da = new SqlDataAdapter("SELECT MES,N_conforme,responsable,solicito,fecha_enviado,fecha_respuesta,fecha_cierre FROM [proyecto].[dbo].[Indicador_acciones] WHERE verificado='INTERNO'", connecting);
                 dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -188,7 +187,7 @@ namespace Indicador_de_acciones_Calidad
         }
         public void verificar()
         {
-            
+
             DateTime fechaActual = DateTime.Today;
             string hoy = fechaActual.ToString("dd/MM/yyyy");
             string FECHA_CIERRE = null;
@@ -217,7 +216,7 @@ namespace Indicador_de_acciones_Calidad
                 {
 
                     notifyIcon1.Visible = true;
-                    notifyIcon1.Icon = new Icon("mainco.ico");
+                    notifyIcon1.Icon = new Icon("C:/Users/darthvirus/source/repos/Indicador de acciones Calidad/Resources/mainco.ico");
                     notifyIcon1.Text = "Notificacion";
                     notifyIcon1.Visible = true;
                     notifyIcon1.ShowBalloonTip(5000, "EXISTE INDICADORES ACCIONES CORRECTIVAS VENCIDAS", "ABRA LA APLICACION", ToolTipIcon.Info);
@@ -237,7 +236,7 @@ namespace Indicador_de_acciones_Calidad
                         Application.Run(supervisador);
                     }
                 }
-                
+
 
             }
             catch (SqlException ex)
@@ -270,7 +269,7 @@ namespace Indicador_de_acciones_Calidad
             string[] Ambiental = { "Monica Hernandez" };
             string[] Sistemas = { "Emerson Restrepo", "Jhonatan Fernandez" };
             string[] Comercial = { "Diana Lasso", "Yenny Mercado", "Alejandro Clavijo", "Deisy Yurani Gomez", "Elizabeth Ardila", "Viviana Velasquez", "Julian Henao" };
-            string[] Gestión= { "Ana Patria Angulo", "Lina Galindez", "Bella Consuegra", "Jhon Fabio Morales", "Johan Carvajal" };
+            string[] Gestión = { "Ana Patria Angulo", "Lina Galindez", "Bella Consuegra", "Jhon Fabio Morales", "Johan Carvajal" };
             string[] Gerente = { "Janeth Moreno" };
 
             Dictionary<string, string[]> dictionary = new Dictionary<string, string[]>
@@ -344,42 +343,44 @@ namespace Indicador_de_acciones_Calidad
                 { "Externos", Externos }
             };
             string[] Sistema11 = dictionary11["Externos"];
-            
+
             Dictionary<string, string[]> dictionary12 = new Dictionary<string, string[]>
             {
                 { "Ambiental", Ambiental }
             };
             string[] Sistema12 = dictionary12["Ambiental"];
-                        
+
             Dictionary<string, string[]> dictionary13 = new Dictionary<string, string[]>
             {
                 { "Sistemas", Sistemas }
             };
             string[] Sistema13 = dictionary13["Sistemas"];
-                        
+
             Dictionary<string, string[]> dictionary14 = new Dictionary<string, string[]>
             {
                 { "Comercial", Comercial }
             };
             string[] Sistema14 = dictionary14["Comercial"];
-                        
+
             Dictionary<string, string[]> dictionary15 = new Dictionary<string, string[]>
             {
                 { "Gestión", Gestión }
             };
             string[] Sistema15 = dictionary15["Gestión"];
-                        
+
             Dictionary<string, string[]> dictionary16 = new Dictionary<string, string[]>
             {
                 { "Gerente", Gerente }
             };
             string[] Sistema16 = dictionary16["Gerente"];
 
-            
+
 
             /**************************************************/
 
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Paquetes")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -389,7 +390,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Produccion")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -399,7 +402,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Calidad")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -409,7 +414,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Semiautomaticas")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -419,7 +426,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Corte")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -429,7 +438,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Financiero")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -439,7 +450,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Comercio Exterior")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -449,7 +462,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Costos")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -458,7 +473,9 @@ namespace Indicador_de_acciones_Calidad
                     comboBox2.Items.Add(Sistema7[i]);
                 }
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Abastecimiento")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -468,7 +485,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Compras")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -478,7 +497,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Logistica")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -487,7 +508,9 @@ namespace Indicador_de_acciones_Calidad
                     comboBox2.Items.Add(Sistema10[i]);
                 }
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Externos")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -497,7 +520,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Ambiental")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -507,7 +532,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Sistemas")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -517,7 +544,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Comercial")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -527,7 +556,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox2.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Gestión Humana")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -536,7 +567,9 @@ namespace Indicador_de_acciones_Calidad
                     comboBox2.Items.Add(Sistema15[i]);
                 }
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Gerencia")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox2.Items.Clear();
@@ -677,7 +710,9 @@ namespace Indicador_de_acciones_Calidad
 
             /**************************************************/
 
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Paquetes")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -687,7 +722,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Produccion")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -697,7 +734,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Calidad")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -707,7 +746,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Semiautomaticas")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -717,7 +758,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Corte")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -727,7 +770,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Financiero")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -737,7 +782,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Comercio Exterior")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -747,7 +794,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Costos")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -757,7 +806,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Abastecimiento")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -767,7 +818,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Compras")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -777,7 +830,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Logistica")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -787,7 +842,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Externos")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -797,7 +854,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Ambiental")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -807,7 +866,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Sistemas")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -817,7 +878,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Comercial")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -827,7 +890,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Gestión Humana")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -837,7 +902,9 @@ namespace Indicador_de_acciones_Calidad
                 }
                 comboBox4.SelectedIndex = +0;
             }
+#pragma warning disable CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             if (select == "Gerencia")
+#pragma warning restore CS0252 // Posible comparación de referencias no intencionada; para obtener una comparación de valores, convierta el lado de la izquierda en el tipo 'string'
             {
 
                 comboBox4.Items.Clear();
@@ -871,7 +938,7 @@ namespace Indicador_de_acciones_Calidad
             Exportar_interno exporta = new Exportar_interno();
             exporta.Show();
 
-            
+
         }
     }
 }

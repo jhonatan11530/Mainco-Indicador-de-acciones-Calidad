@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad
@@ -54,7 +48,7 @@ namespace Indicador_de_acciones_Calidad
             DataTable dt;
             try
             {
-                da = new SqlDataAdapter("SELECT * FROM proyecto.dbo.Indicador_acciones", connecting);
+                da = new SqlDataAdapter("SELECT * FROM proyecto.dbo.Indicador_acciones WHERE verificado='INTERNO'", connecting);
                 dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -79,7 +73,7 @@ namespace Indicador_de_acciones_Calidad
             DataTable dt;
             try
             {
-                da = new SqlDataAdapter("SELECT * FROM proyecto.dbo.Indicador_acciones WHERE MES='"+valor+"' ", connecting);
+                da = new SqlDataAdapter("SELECT * FROM proyecto.dbo.Indicador_acciones WHERE MES='" + valor + "' AND verificado='INTERNO'", connecting);
                 dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -96,5 +90,11 @@ namespace Indicador_de_acciones_Calidad
 
         }
 
+        private void Filtro_interno_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Indicador_acciones' Puede moverla o quitarla según sea necesario.
+            this.indicador_accionesTableAdapter.Fill(this.dataSet1.Indicador_acciones);
+
+        }
     }
 }

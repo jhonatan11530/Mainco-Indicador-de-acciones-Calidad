@@ -1,26 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad
 {
     public partial class Respuesta_interno : Form
     {
-        DateTime fechaActual= new DateTime();
+        DateTime fechaActual = new DateTime();
         public Respuesta_interno()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
 
-             fechaActual = DateTime.Today;
+            fechaActual = DateTime.Today;
 
             dateTimePicker1.Value = fechaActual;
 
@@ -43,11 +36,12 @@ namespace Indicador_de_acciones_Calidad
             Thread hilo = new Thread(delegado);
             hilo.Start();
 
-            
-        }
-        public void Buscar() {
 
-            
+        }
+        public void Buscar()
+        {
+
+
             string buscar = textBox1.Text;
             string detalle = null;
             string especifico = null;
@@ -58,7 +52,7 @@ namespace Indicador_de_acciones_Calidad
             SqlDataReader reader = conexion.reader();
             try
             {
-                string consulta = "SELECT detallado,especifico,fecha_respuesta FROM [proyecto].[dbo].[Indicador_acciones] WHERE N_conforme='"+buscar+"' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                string consulta = "SELECT detallado,especifico,fecha_respuesta FROM [proyecto].[dbo].[Indicador_acciones] WHERE N_conforme='" + buscar + "' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                 SqlCommand comando = new SqlCommand(consulta)
                 {
                     Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
@@ -75,7 +69,7 @@ namespace Indicador_de_acciones_Calidad
                 textBox2.Text = detalle;
                 textBox3.Text = especifico;
                 textBox4.Text = respuesta;
-                
+
             }
             catch (SqlException ex)
             {
@@ -85,7 +79,7 @@ namespace Indicador_de_acciones_Calidad
             {
                 connecting.Close(); //Cierra la conexión a MySQL
             }
-            
+
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -100,14 +94,17 @@ namespace Indicador_de_acciones_Calidad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Observaciones.Text == String.Empty && plan.Text == String.Empty) {
+            if (Observaciones.Text == String.Empty && plan.Text == String.Empty)
+            {
                 MessageBox.Show("LOS CAMPOS ESTAN VACIOS");
             }
-            if (checkBox1.Checked == false && checkBox2.Checked == false && checkBox3.Checked == false) {
+            if (checkBox1.Checked == false && checkBox2.Checked == false && checkBox3.Checked == false)
+            {
 
                 MessageBox.Show("DEBE SELECIONAR UNA OPCION");
             }
-            else {
+            else
+            {
 
 
                 int DIAS = 0; ;
@@ -142,7 +139,8 @@ namespace Indicador_de_acciones_Calidad
                     }
 
                     connecting.Close(); //Cierra la conexión a MySQL
-                    if (checkBox1.Checked == true) {
+                    if (checkBox1.Checked == true)
+                    {
 
                         if (DIAS < 0)
                         {
@@ -170,7 +168,9 @@ namespace Indicador_de_acciones_Calidad
                             }
                         }
                     }
+#pragma warning disable CS0665 // La asignación en la expresión condicional siempre es constante; ¿quería utilizar == en lugar de = ?
                     else if (checkBox2.Checked = true)
+#pragma warning restore CS0665 // La asignación en la expresión condicional siempre es constante; ¿quería utilizar == en lugar de = ?
                     {
                         try
                         {
@@ -221,19 +221,19 @@ namespace Indicador_de_acciones_Calidad
                     connecting.Close(); //Cierra la conexión a MySQL
                 }
             }
-            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-     
+
             checkBox2.Checked = false;
             checkBox3.Checked = false;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            
+
             checkBox1.Checked = false;
             checkBox3.Checked = false;
         }
