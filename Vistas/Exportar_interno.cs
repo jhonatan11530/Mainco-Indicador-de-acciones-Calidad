@@ -14,7 +14,7 @@ namespace Indicador_de_acciones_Calidad
         {
             InitializeComponent();
 
-            //  3519090 ext 70440
+
             comboBox1.Enabled = false;
             comboBox2.Enabled = false;
             comboBox3.Enabled = false;
@@ -900,7 +900,6 @@ namespace Indicador_de_acciones_Calidad
 
             comboBox4.SelectedIndex = +0;
         }
-
 
     }
 }

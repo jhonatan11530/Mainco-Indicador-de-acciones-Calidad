@@ -32,10 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Supervisador_interno));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.indicadoraccionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet7 = new Indicador_de_acciones_Calidad.DataSets.DataSet7();
-            this.button1 = new System.Windows.Forms.Button();
-            this.indicador_accionesTableAdapter = new Indicador_de_acciones_Calidad.DataSets.DataSet7TableAdapters.Indicador_accionesTableAdapter();
             this.nconformeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalladoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +40,10 @@
             this.fecharespuestaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechacierreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.indicadoraccionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet7 = new Indicador_de_acciones_Calidad.DataSets.DataSet7();
+            this.button1 = new System.Windows.Forms.Button();
+            this.indicador_accionesTableAdapter = new Indicador_de_acciones_Calidad.DataSets.DataSet7TableAdapters.Indicador_accionesTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.indicadoraccionesBindingSource)).BeginInit();
@@ -81,31 +81,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(768, 354);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // indicadoraccionesBindingSource
-            // 
-            this.indicadoraccionesBindingSource.DataMember = "Indicador_acciones";
-            this.indicadoraccionesBindingSource.DataSource = this.dataSet7;
-            // 
-            // dataSet7
-            // 
-            this.dataSet7.DataSetName = "DataSet7";
-            this.dataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(359, 392);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 46);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "CONTINUAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // indicador_accionesTableAdapter
-            // 
-            this.indicador_accionesTableAdapter.ClearBeforeFill = true;
             // 
             // nconformeDataGridViewTextBoxColumn
             // 
@@ -163,6 +138,31 @@
             this.diasDataGridViewTextBoxColumn.Name = "diasDataGridViewTextBoxColumn";
             this.diasDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // indicadoraccionesBindingSource
+            // 
+            this.indicadoraccionesBindingSource.DataMember = "Indicador_acciones";
+            this.indicadoraccionesBindingSource.DataSource = this.dataSet7;
+            // 
+            // dataSet7
+            // 
+            this.dataSet7.DataSetName = "DataSet7";
+            this.dataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(359, 392);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 46);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "CONTINUAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // indicador_accionesTableAdapter
+            // 
+            this.indicador_accionesTableAdapter.ClearBeforeFill = true;
+            // 
             // Supervisador_interno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +176,7 @@
             this.Name = "Supervisador_interno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supervisador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Supervisador_interno_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.indicadoraccionesBindingSource)).EndInit();

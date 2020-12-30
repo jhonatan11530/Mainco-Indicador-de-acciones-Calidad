@@ -52,7 +52,7 @@ namespace Indicador_de_acciones_Calidad
             SqlDataReader reader = conexion.reader();
             try
             {
-                string consulta = "SELECT detallado,especifico,fecha_respuesta FROM [proyecto].[dbo].[Indicador_acciones] WHERE N_conforme='" + buscar + "' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                string consulta = "SELECT detallado,especifico,fecha_respuesta FROM [proyecto].[dbo].[Indicador_acciones] WHERE N_conforme='" + buscar + "' AND verificado='INTERNO' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                 SqlCommand comando = new SqlCommand(consulta)
                 {
                     Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
@@ -120,7 +120,7 @@ namespace Indicador_de_acciones_Calidad
 
                 try
                 {
-                    string select = "SELECT fecha_respuesta FROM dbo.Indicador_acciones where N_conforme=" + Numero + ""; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                    string select = "SELECT fecha_respuesta FROM dbo.Indicador_acciones where N_conforme=" + Numero + " AND verificado='INTERNO' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                     SqlCommand comandos = new SqlCommand(select)
                     {
                         Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
@@ -152,7 +152,7 @@ namespace Indicador_de_acciones_Calidad
                         {
                             try
                             {
-                                string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIAS + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                                string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIAS + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' AND verificado='INTERNO'"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                                 SqlCommand comando = new SqlCommand(consulta)
                                 {
                                     Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
@@ -263,5 +263,6 @@ namespace Indicador_de_acciones_Calidad
             checkBox3.Checked = true;
             dateTimePicker1.Enabled = true;
         }
+
     }
 }

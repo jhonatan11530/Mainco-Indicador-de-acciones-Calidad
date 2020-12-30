@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad.Vistas
@@ -23,18 +17,17 @@ namespace Indicador_de_acciones_Calidad.Vistas
             verificar1();
 
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             verificar2();
         }
+
         public void verificar1()
         {
-
+            string fecha = null;
             DateTime fechaActual = DateTime.Today;
             string hoy = fechaActual.ToString("dd/MM/yyyy");
-            string FECHA_CIERRE = null;
-
-            fechaActual.AddDays(+1).ToString("dd/MM/yyyy");
 
             Conexion conexion = new Conexion();
             SqlConnection connecting = conexion.connecting();
@@ -51,10 +44,11 @@ namespace Indicador_de_acciones_Calidad.Vistas
 
                 while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
                 {
-                    FECHA_CIERRE = reader.GetString(8);
+                    fecha = reader.GetString(8);
 
                 }
-                if (hoy == FECHA_CIERRE)
+
+                if (hoy == fecha)
                 {
 
                     notifyIcon1.Visible = true;
@@ -66,6 +60,7 @@ namespace Indicador_de_acciones_Calidad.Vistas
                     dynamic result = MessageBox.Show("EXISTE INDICADORES ACCIONES CORRECTIVAS VENCIDAS", "SE VENCIO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
+
                         Supervisador_interno supervisador = new Supervisador_interno(hoy);
                         supervisador.Show();
                         Hide();
@@ -74,11 +69,19 @@ namespace Indicador_de_acciones_Calidad.Vistas
                     if (result == DialogResult.No)
                     {
                         MessageBox.Show("DEBE VER LOS INDICADORES CON FECHA VENCIDO", "DEBE REVISAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        
+
+
                         Supervisador_interno supervisador = new Supervisador_interno(hoy);
                         supervisador.Show();
                         Hide();
                     }
+                }
+                else
+                {
+
+                    Supervisador_interno supervisador = new Supervisador_interno(hoy);
+                    supervisador.Show();
+                    Hide();
                 }
 
 
@@ -92,12 +95,12 @@ namespace Indicador_de_acciones_Calidad.Vistas
                 connecting.Close(); //Cierra la conexión a MySQL
             }
         }
+
         public void verificar2()
         {
-
+            string FECHA_CIERRE = null;
             DateTime fechaActual = DateTime.Today;
             string hoy = fechaActual.ToString("dd/MM/yyyy");
-            string FECHA_CIERRE = null;
 
             fechaActual.AddDays(+1).ToString("dd/MM/yyyy");
 
@@ -119,6 +122,7 @@ namespace Indicador_de_acciones_Calidad.Vistas
                     FECHA_CIERRE = reader.GetString(8);
 
                 }
+
                 if (hoy == FECHA_CIERRE)
                 {
 
@@ -131,7 +135,8 @@ namespace Indicador_de_acciones_Calidad.Vistas
                     dynamic result = MessageBox.Show("EXISTE INDICADORES ACCIONES CORRECTIVAS VENCIDAS", "SE VENCIO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        Supervisador_interno supervisador = new Supervisador_interno(hoy);
+
+                        Supervisor_externo supervisador = new Supervisor_externo(hoy);
                         supervisador.Show();
                         Hide();
 
@@ -140,10 +145,16 @@ namespace Indicador_de_acciones_Calidad.Vistas
                     {
                         MessageBox.Show("DEBE VER LOS INDICADORES CON FECHA VENCIDO", "DEBE REVISAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        Supervisador_interno supervisador = new Supervisador_interno(hoy);
+                        Supervisor_externo supervisador = new Supervisor_externo(hoy);
                         supervisador.Show();
                         Hide();
                     }
+                }
+                else
+                {
+                    Supervisor_externo supervisador = new Supervisor_externo(hoy);
+                    supervisador.Show();
+                    Hide();
                 }
 
 
@@ -158,6 +169,5 @@ namespace Indicador_de_acciones_Calidad.Vistas
             }
         }
 
-        
     }
 }

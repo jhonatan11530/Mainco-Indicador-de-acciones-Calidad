@@ -34,9 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataSet1 = new Indicador_de_acciones_Calidad.DataSets.DataSet1();
-            this.indicadoraccionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.indicador_accionesTableAdapter = new Indicador_de_acciones_Calidad.DataSets.DataSet1TableAdapters.Indicador_accionesTableAdapter();
             this.mESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nconformeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalladoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,10 +46,13 @@
             this.fecharespuestaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.indicadoraccionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Indicador_de_acciones_Calidad.DataSets.DataSet1();
+            this.indicador_accionesTableAdapter = new Indicador_de_acciones_Calidad.DataSets.DataSet1TableAdapters.Indicador_accionesTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.indicadoraccionesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -110,20 +110,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1215, 336);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // indicadoraccionesBindingSource
-            // 
-            this.indicadoraccionesBindingSource.DataMember = "Indicador_acciones";
-            this.indicadoraccionesBindingSource.DataSource = this.dataSet1;
-            // 
-            // indicador_accionesTableAdapter
-            // 
-            this.indicador_accionesTableAdapter.ClearBeforeFill = true;
             // 
             // mESDataGridViewTextBoxColumn
             // 
@@ -209,6 +195,20 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // indicadoraccionesBindingSource
+            // 
+            this.indicadoraccionesBindingSource.DataMember = "Indicador_acciones";
+            this.indicadoraccionesBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // indicador_accionesTableAdapter
+            // 
+            this.indicador_accionesTableAdapter.ClearBeforeFill = true;
+            // 
             // Filtro_interno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,11 +223,10 @@
             this.Name = "Filtro_interno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filtro";
-            this.Load += new System.EventHandler(this.Filtro_interno_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.indicadoraccionesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

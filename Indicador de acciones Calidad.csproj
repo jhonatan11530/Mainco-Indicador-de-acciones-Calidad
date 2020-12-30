@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>mainco.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -55,6 +69,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="DataSets\DataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,6 +98,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Exportar_externo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Exportar_externo.Designer.cs">
+      <DependentUpon>Exportar_externo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Filtro externo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Filtro externo.Designer.cs">
+      <DependentUpon>Filtro externo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Indicardor_externo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Indicardor_externo.Designer.cs">
+      <DependentUpon>Indicardor_externo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Respuesta_externo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Respuesta_externo.Designer.cs">
+      <DependentUpon>Respuesta_externo.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Exportar_interno.cs">
       <SubType>Form</SubType>
@@ -108,6 +161,24 @@
     <Compile Include="Vistas\Supervisador_interno.Designer.cs">
       <DependentUpon>Supervisador_interno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Supervisador_externo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Supervisador_externo.Designer.cs">
+      <DependentUpon>Supervisador_externo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vistas\Exportar_externo.resx">
+      <DependentUpon>Exportar_externo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Filtro externo.resx">
+      <DependentUpon>Filtro externo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Indicardor_externo.resx">
+      <DependentUpon>Indicardor_externo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Respuesta_externo.resx">
+      <DependentUpon>Respuesta_externo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Exportar_interno.resx">
       <DependentUpon>Exportar_interno.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +207,42 @@
     <EmbeddedResource Include="Vistas\Supervisador_interno.resx">
       <DependentUpon>Supervisador_interno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Supervisador_externo.resx">
+      <DependentUpon>Supervisador_externo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSets\DataSet5.xsc">
+      <DependentUpon>DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\DataSet5.xss">
+      <DependentUpon>DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet3.xsc">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\DataSet3.xss">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -185,6 +292,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mainco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mainco.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -45,8 +45,14 @@ namespace Indicador_de_acciones_Calidad
         {
             Indicador_interno supervisador = new Indicador_interno();
             supervisador.Show();
-            this.Close();
+            this.Hide();
         }
 
+        private void Supervisador_interno_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Indicador_interno supervisador = new Indicador_interno();
+            supervisador.Show();
+
+        }
     }
 }

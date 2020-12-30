@@ -1,20 +1,15 @@
-﻿using Indicador_de_acciones_Calidad.Vistas;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad
 {
     public partial class Indicador_interno : Form
     {
-#pragma warning disable CS0169 // El campo 'Indicador_interno.xlWS' nunca se usa
-        private readonly object xlWS;
-#pragma warning restore CS0169 // El campo 'Indicador_interno.xlWS' nunca se usa
         public Indicador_interno()
         {
             ejecutar();
@@ -185,7 +180,7 @@ namespace Indicador_de_acciones_Calidad
                 return false; //No Prev Instance Running
             }
         }
-       
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -877,6 +872,11 @@ namespace Indicador_de_acciones_Calidad
             exporta.Show();
 
 
+        }
+
+        private void Indicador_interno_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.ExitThread();
         }
     }
 }

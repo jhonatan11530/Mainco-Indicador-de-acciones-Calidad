@@ -58,6 +58,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.mESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nconformeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solicitoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaenviadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechacierreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecharespuestaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.indicadoraccionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet4 = new Indicador_de_acciones_Calidad.DataSets.DataSet4();
             this.label16 = new System.Windows.Forms.Label();
@@ -68,13 +75,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.indicador_accionesTableAdapter = new Indicador_de_acciones_Calidad.DataSets.DataSet4TableAdapters.Indicador_accionesTableAdapter();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.mESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nconformeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.responsableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.solicitoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaenviadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechacierreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecharespuestaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.indicadoraccionesBindingSource)).BeginInit();
@@ -133,6 +134,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(597, 602);
             this.panel1.TabIndex = 2;
+
             // 
             // comboBox5
             // 
@@ -398,6 +400,55 @@
             this.dataGridView1.Size = new System.Drawing.Size(748, 342);
             this.dataGridView1.TabIndex = 3;
             // 
+            // mESDataGridViewTextBoxColumn
+            // 
+            this.mESDataGridViewTextBoxColumn.DataPropertyName = "MES";
+            this.mESDataGridViewTextBoxColumn.HeaderText = "MES";
+            this.mESDataGridViewTextBoxColumn.Name = "mESDataGridViewTextBoxColumn";
+            this.mESDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nconformeDataGridViewTextBoxColumn
+            // 
+            this.nconformeDataGridViewTextBoxColumn.DataPropertyName = "N_conforme";
+            this.nconformeDataGridViewTextBoxColumn.HeaderText = "NO CONFORME";
+            this.nconformeDataGridViewTextBoxColumn.Name = "nconformeDataGridViewTextBoxColumn";
+            this.nconformeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // responsableDataGridViewTextBoxColumn
+            // 
+            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "responsable";
+            this.responsableDataGridViewTextBoxColumn.HeaderText = "RESPONSABLE";
+            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
+            this.responsableDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // solicitoDataGridViewTextBoxColumn
+            // 
+            this.solicitoDataGridViewTextBoxColumn.DataPropertyName = "solicito";
+            this.solicitoDataGridViewTextBoxColumn.HeaderText = "SOLICITO";
+            this.solicitoDataGridViewTextBoxColumn.Name = "solicitoDataGridViewTextBoxColumn";
+            this.solicitoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaenviadoDataGridViewTextBoxColumn
+            // 
+            this.fechaenviadoDataGridViewTextBoxColumn.DataPropertyName = "fecha_enviado";
+            this.fechaenviadoDataGridViewTextBoxColumn.HeaderText = "FECHA ENVIADO";
+            this.fechaenviadoDataGridViewTextBoxColumn.Name = "fechaenviadoDataGridViewTextBoxColumn";
+            this.fechaenviadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechacierreDataGridViewTextBoxColumn
+            // 
+            this.fechacierreDataGridViewTextBoxColumn.DataPropertyName = "fecha_cierre";
+            this.fechacierreDataGridViewTextBoxColumn.HeaderText = "FECHA DE RESPUESTA";
+            this.fechacierreDataGridViewTextBoxColumn.Name = "fechacierreDataGridViewTextBoxColumn";
+            this.fechacierreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fecharespuestaDataGridViewTextBoxColumn
+            // 
+            this.fecharespuestaDataGridViewTextBoxColumn.DataPropertyName = "fecha_respuesta";
+            this.fecharespuestaDataGridViewTextBoxColumn.HeaderText = "FECHA LIMITE RESPUESTA";
+            this.fecharespuestaDataGridViewTextBoxColumn.Name = "fecharespuestaDataGridViewTextBoxColumn";
+            this.fecharespuestaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // indicadoraccionesBindingSource
             // 
             this.indicadoraccionesBindingSource.DataMember = "Indicador_acciones";
@@ -483,60 +534,22 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // mESDataGridViewTextBoxColumn
+            // label11
             // 
-            this.mESDataGridViewTextBoxColumn.DataPropertyName = "MES";
-            this.mESDataGridViewTextBoxColumn.HeaderText = "MES";
-            this.mESDataGridViewTextBoxColumn.Name = "mESDataGridViewTextBoxColumn";
-            this.mESDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nconformeDataGridViewTextBoxColumn
-            // 
-            this.nconformeDataGridViewTextBoxColumn.DataPropertyName = "N_conforme";
-            this.nconformeDataGridViewTextBoxColumn.HeaderText = "NO CONFORME";
-            this.nconformeDataGridViewTextBoxColumn.Name = "nconformeDataGridViewTextBoxColumn";
-            this.nconformeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // responsableDataGridViewTextBoxColumn
-            // 
-            this.responsableDataGridViewTextBoxColumn.DataPropertyName = "responsable";
-            this.responsableDataGridViewTextBoxColumn.HeaderText = "RESPONSABLE";
-            this.responsableDataGridViewTextBoxColumn.Name = "responsableDataGridViewTextBoxColumn";
-            this.responsableDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // solicitoDataGridViewTextBoxColumn
-            // 
-            this.solicitoDataGridViewTextBoxColumn.DataPropertyName = "solicito";
-            this.solicitoDataGridViewTextBoxColumn.HeaderText = "SOLICITO";
-            this.solicitoDataGridViewTextBoxColumn.Name = "solicitoDataGridViewTextBoxColumn";
-            this.solicitoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaenviadoDataGridViewTextBoxColumn
-            // 
-            this.fechaenviadoDataGridViewTextBoxColumn.DataPropertyName = "fecha_enviado";
-            this.fechaenviadoDataGridViewTextBoxColumn.HeaderText = "FECHA ENVIADO";
-            this.fechaenviadoDataGridViewTextBoxColumn.Name = "fechaenviadoDataGridViewTextBoxColumn";
-            this.fechaenviadoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechacierreDataGridViewTextBoxColumn
-            // 
-            this.fechacierreDataGridViewTextBoxColumn.DataPropertyName = "fecha_cierre";
-            this.fechacierreDataGridViewTextBoxColumn.HeaderText = "FECHA DE RESPUESTA";
-            this.fechacierreDataGridViewTextBoxColumn.Name = "fechacierreDataGridViewTextBoxColumn";
-            this.fechacierreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fecharespuestaDataGridViewTextBoxColumn
-            // 
-            this.fecharespuestaDataGridViewTextBoxColumn.DataPropertyName = "fecha_respuesta";
-            this.fecharespuestaDataGridViewTextBoxColumn.HeaderText = "FECHA LIMITE RESPUESTA";
-            this.fecharespuestaDataGridViewTextBoxColumn.Name = "fecharespuestaDataGridViewTextBoxColumn";
-            this.fecharespuestaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(406, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(606, 29);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "INDICADOR ACCIONES CORRECTIVAS INTERNO";
             // 
             // Indicador_interno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.dataGridView1);
@@ -548,6 +561,7 @@
             this.Name = "Indicador_interno";
             this.Text = "INDICADOR DE ACCIONES - CALIDAD";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Indicador_interno_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -607,6 +621,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaenviadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechacierreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecharespuestaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label11;
     }
 }
 

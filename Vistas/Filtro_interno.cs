@@ -89,12 +89,5 @@ namespace Indicador_de_acciones_Calidad
             }
 
         }
-
-        private void Filtro_interno_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Indicador_acciones' Puede moverla o quitarla según sea necesario.
-            this.indicador_accionesTableAdapter.Fill(this.dataSet1.Indicador_acciones);
-
-        }
     }
 }
