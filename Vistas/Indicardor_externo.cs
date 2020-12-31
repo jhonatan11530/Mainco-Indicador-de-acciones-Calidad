@@ -21,7 +21,7 @@ namespace Indicador_de_acciones_Calidad
             dateTimePicker1.Value = fechaActual;
             dateTimePicker2.Value = fechaActual;
 
-
+            textBox5.Visible = false;
 
             string[] ESTADO = { "ABIERTO", "CERRADO" };
             string[] Centros = { "Paquetes", "Produccion", "Calidad", "Semiautomaticas", "Corte", "Financiero", "Comercio Exterior", "Costos", "Abastecimiento", "Compras", "Logistica", "Externos", "Ambiental", "Sistemas", "Comercial", "Gestión Humana", "Gerencia" };
@@ -60,7 +60,7 @@ namespace Indicador_de_acciones_Calidad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text == String.Empty && textBox3.Text == String.Empty && textBox4.Text == String.Empty)
+            if (textBox2.Text == string.Empty && textBox3.Text == string.Empty && textBox4.Text == string.Empty)
             {
                 MessageBox.Show("LOS CAMPOS ESTAN VACIOS");
             }
@@ -94,12 +94,14 @@ namespace Indicador_de_acciones_Calidad
             string diaCierre = textBox5.Text;
             string estado = comboBox5.SelectedItem.ToString();
             string verificado = "EXTERNO";
+            string observacion = "SIN OBSERVACION";
+            string plan_de_accion = "SIN PLAN DE ACCION";
 
             Conexion conexion = new Conexion();
             SqlConnection connecting = conexion.connecting();
             try
             {
-                string consulta = "INSERT INTO proyecto.dbo.Indicador_acciones (MES,N_conforme,detallado,especifico,area,responsable,solicito,fecha_enviado,fecha_respuesta,fecha_cierre,dias,estado,verificado) VALUES ('" + mes + "','" + no_conforme + "','" + detalle + "','" + detalle_especifico + "','" + area + "','" + responsable + "','" + solicito + "','" + fechaEnvio + "','" + fechaCierre + "','" + fechaCierreAccion + "','" + diaCierre + "','" + estado + "','" + verificado + "' ) "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                string consulta = "INSERT INTO proyecto.dbo.Indicador_acciones (MES,N_conforme,detallado,especifico,area,responsable,solicito,fecha_enviado,fecha_respuesta,fecha_cierre,dias,estado,verificado,planes,observaciones) VALUES ('" + mes + "','" + no_conforme + "','" + detalle + "','" + detalle_especifico + "','" + area + "','" + responsable + "','" + solicito + "','" + fechaEnvio + "','" + fechaCierre + "','" + fechaCierreAccion + "','" + diaCierre + "','" + estado + "','" + verificado + "','" + plan_de_accion + "','" + observacion + "' ) "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                 SqlCommand comando = new SqlCommand(consulta)
                 {
 
@@ -879,7 +881,7 @@ namespace Indicador_de_acciones_Calidad
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (textBox2.Text == String.Empty && textBox3.Text == String.Empty && textBox4.Text == String.Empty)
+            if (textBox2.Text == string.Empty && textBox3.Text == string.Empty && textBox4.Text == string.Empty)
             {
                 MessageBox.Show("LOS CAMPOS ESTAN VACIOS");
             }

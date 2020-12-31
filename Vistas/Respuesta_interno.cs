@@ -7,7 +7,7 @@ namespace Indicador_de_acciones_Calidad
 {
     public partial class Respuesta_interno : Form
     {
-        DateTime fechaActual = new DateTime();
+        private readonly DateTime fechaActual = new DateTime();
         public Respuesta_interno()
         {
             InitializeComponent();
@@ -16,8 +16,10 @@ namespace Indicador_de_acciones_Calidad
             fechaActual = DateTime.Today;
 
             dateTimePicker1.Value = fechaActual;
+            dateTimePicker2.Value = fechaActual;
 
             dateTimePicker1.Enabled = false;
+            dateTimePicker2.Enabled = false;
 
             button1.Enabled = false;
 
@@ -46,13 +48,15 @@ namespace Indicador_de_acciones_Calidad
             string detalle = null;
             string especifico = null;
             string respuesta = null;
+            string observacion = null;
+            string accion = null;
 
             Conexion conexion = new Conexion();
             SqlConnection connecting = conexion.connecting();
             SqlDataReader reader = conexion.reader();
             try
             {
-                string consulta = "SELECT detallado,especifico,fecha_respuesta FROM [proyecto].[dbo].[Indicador_acciones] WHERE N_conforme='" + buscar + "' AND verificado='INTERNO' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                string consulta = "SELECT detallado,especifico,fecha_respuesta,observaciones,planes FROM [proyecto].[dbo].[Indicador_acciones] WHERE N_conforme='" + buscar + "' AND verificado='INTERNO' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                 SqlCommand comando = new SqlCommand(consulta)
                 {
                     Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
@@ -65,10 +69,15 @@ namespace Indicador_de_acciones_Calidad
                     detalle = reader.GetString(0);
                     especifico = reader.GetString(1);   //Almacena cada registro con un salto de linea
                     respuesta = reader.GetString(2);
+                    observacion = reader.GetString(3);
+                    accion = reader.GetString(4);
+
                 }
                 textBox2.Text = detalle;
                 textBox3.Text = especifico;
                 textBox4.Text = respuesta;
+                Observaciones.Text = observacion;
+                Plan_Accion.Text = accion;
 
             }
             catch (SqlException ex)
@@ -94,25 +103,31 @@ namespace Indicador_de_acciones_Calidad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Observaciones.Text == String.Empty && plan.Text == String.Empty)
+            if (Observaciones.Text == string.Empty && Plan_Accion.Text == string.Empty)
             {
-                MessageBox.Show("LOS CAMPOS ESTAN VACIOS");
+                MessageBox.Show("LOS CAMPOS ESTAN VACIOS", "DATOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (checkBox1.Checked == false && checkBox2.Checked == false && checkBox3.Checked == false)
+            if (checkBox1.Checked && checkBox2.Checked)
             {
+                MessageBox.Show("DEBE SELECIONAR UNA OPCION", "SELECCION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-                MessageBox.Show("DEBE SELECIONAR UNA OPCION");
+            if (checkBox3.Checked && checkBox4.Checked)
+            {
+                MessageBox.Show("DEBE SELECIONAR UNA OPCION", "SELECCION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
 
 
-                int DIAS = 0; ;
+                int DIA = 0;
+                int DIAS = 0;
                 string estado = comboBox1.SelectedItem.ToString();
-                string planes = plan.Text;
+                string planes = Plan_Accion.Text;
                 string observacion = Observaciones.Text;
                 string Numero = textBox1.Text;
                 string fechaCierreAccion = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+                string fechaCierrePlan = dateTimePicker2.Value.ToString("dd/MM/yyyy");
 
                 Conexion conexion = new Conexion();
                 SqlConnection connecting = conexion.connecting();
@@ -134,15 +149,20 @@ namespace Indicador_de_acciones_Calidad
 
                         DateTime fechainicio = dateTimePicker1.Value;
                         DateTime fechafin = DateTime.Parse(fecha_respuesta);
-                        DIAS = (fechafin - fechainicio).Days;
+                        DIA = (fechafin - fechainicio).Days;
+
+                        DateTime fechainicios = dateTimePicker2.Value;
+                        DateTime fechafins = DateTime.Parse(fecha_respuesta);
+                        DIAS = (fechafins - fechainicios).Days;
 
                     }
 
                     connecting.Close(); //Cierra la conexión a MySQL
-                    if (checkBox1.Checked == true)
+
+                    if (checkBox1.Checked)
                     {
 
-                        if (DIAS < 0)
+                        if (DIA < 0)
                         {
 
                             MessageBox.Show("NO PUEDES SOBRE PASAR EL LIMITE DE DIAS DE RESPUESTA", "NO PUEDE SOBREPASAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -152,13 +172,14 @@ namespace Indicador_de_acciones_Calidad
                         {
                             try
                             {
-                                string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIAS + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' AND verificado='INTERNO'"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                                string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIA + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' AND verificado='INTERNO'"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                                 SqlCommand comando = new SqlCommand(consulta)
                                 {
                                     Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
                                 }; //Declaración SQL para ejecutar contra una base de datos MySQL
                                 connecting.Open();//Abre la conexión
                                 comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+                                connecting.Close();
                                 MessageBox.Show("EL REGISTRO FUE INSERTADO CORRECTAMENTE !!", "EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Hide();
                             }
@@ -168,20 +189,70 @@ namespace Indicador_de_acciones_Calidad
                             }
                         }
                     }
-#pragma warning disable CS0665 // La asignación en la expresión condicional siempre es constante; ¿quería utilizar == en lugar de = ?
-                    else if (checkBox2.Checked = true)
-#pragma warning restore CS0665 // La asignación en la expresión condicional siempre es constante; ¿quería utilizar == en lugar de = ?
+                    if (checkBox2.Checked)
                     {
                         try
                         {
-                            string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIAS + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                            string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIA + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                             SqlCommand comando = new SqlCommand(consulta)
                             {
                                 Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
                             }; //Declaración SQL para ejecutar contra una base de datos MySQL
                             connecting.Open();//Abre la conexión
                             comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+                            connecting.Close();
                             MessageBox.Show("EL REGISTRO FUE INSERTADO CORRECTAMENTE !!", "EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Hide();
+
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message); //Si existe un error aquí muestra el mensaje
+                        }
+                    }
+
+                    if (checkBox3.Checked)
+                    {
+
+                        if (DIAS < 0)
+                        {
+
+                            MessageBox.Show("NO PUEDES SOBRE PASAR EL LIMITE DE DIAS DE PLAN DE ACCION", "NO PUEDE SOBREPASAR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                        else
+                        {
+                            try
+                            {
+                                string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIA + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "',fecha_cierre_plan='" + fechaCierrePlan + "' WHERE N_conforme='" + Numero + "' AND verificado='INTERNO'"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                                SqlCommand comando = new SqlCommand(consulta)
+                                {
+                                    Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                                }; //Declaración SQL para ejecutar contra una base de datos MySQL
+                                connecting.Open();//Abre la conexión
+                                comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+                                connecting.Close();
+                                Hide();
+
+                            }
+                            catch (SqlException ex)
+                            {
+                                MessageBox.Show(ex.Message); //Si existe un error aquí muestra el mensaje
+                            }
+                        }
+                    }
+                    if (checkBox4.Checked)
+                    {
+                        try
+                        {
+                            string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIA + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "',fecha_cierre_plan='" + fechaCierrePlan + "' WHERE N_conforme='" + Numero + "' AND verificado='INTERNO' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                            SqlCommand comando = new SqlCommand(consulta)
+                            {
+                                Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                            }; //Declaración SQL para ejecutar contra una base de datos MySQL
+                            connecting.Open();//Abre la conexión
+                            comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+                            connecting.Close();
                             Hide();
                         }
                         catch (SqlException ex)
@@ -189,28 +260,8 @@ namespace Indicador_de_acciones_Calidad
                             MessageBox.Show(ex.Message); //Si existe un error aquí muestra el mensaje
                         }
                     }
-                    else if (checkBox3.Checked == true)
-                    {
-                        try
-                        {
-                            string consulta = "UPDATE dbo.Indicador_acciones SET dias='" + DIAS + "',estado='" + estado + "',observaciones='" + observacion + "',planes='" + planes + "',fecha_cierre='" + fechaCierreAccion + "' WHERE N_conforme='" + Numero + "' "; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
-                            SqlCommand comando = new SqlCommand(consulta)
-                            {
-                                Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
-                            }; //Declaración SQL para ejecutar contra una base de datos MySQL
-                            connecting.Open();//Abre la conexión
-                            comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
-                            MessageBox.Show("EL REGISTRO FUE INSERTADO CORRECTAMENTE !!", "EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Hide();
-                        }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show(ex.Message); //Si existe un error aquí muestra el mensaje
-                        }
 
 
-
-                    }
                 }
                 catch (SqlException ex)
                 {
@@ -226,23 +277,12 @@ namespace Indicador_de_acciones_Calidad
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
             checkBox2.Checked = false;
-            checkBox3.Checked = false;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
             checkBox1.Checked = false;
-            checkBox3.Checked = false;
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-            checkBox1.Checked = false;
-            checkBox2.Checked = false;
         }
 
         private void checkBox2_Click(object sender, EventArgs e)
@@ -261,8 +301,23 @@ namespace Indicador_de_acciones_Calidad
         private void checkBox3_Click(object sender, EventArgs e)
         {
             checkBox3.Checked = true;
-            dateTimePicker1.Enabled = true;
+            dateTimePicker2.Enabled = true;
         }
 
+        private void checkBox4_Click(object sender, EventArgs e)
+        {
+            checkBox4.Checked = true;
+            dateTimePicker2.Enabled = true;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox4.Checked = false;
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox3.Checked = false;
+        }
     }
 }

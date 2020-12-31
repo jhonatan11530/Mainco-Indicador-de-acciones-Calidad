@@ -155,17 +155,17 @@
     <Compile Include="Vistas\Separador.Designer.cs">
       <DependentUpon>Separador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Supervisador_interno.cs">
+    <Compile Include="Vistas\Supervisor_interno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Supervisador_interno.Designer.cs">
-      <DependentUpon>Supervisador_interno.cs</DependentUpon>
+    <Compile Include="Vistas\Supervisor_interno.Designer.cs">
+      <DependentUpon>Supervisor_interno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Supervisador_externo.cs">
+    <Compile Include="Vistas\Supervisor_externo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Supervisador_externo.Designer.cs">
-      <DependentUpon>Supervisador_externo.cs</DependentUpon>
+    <Compile Include="Vistas\Supervisor_externo.Designer.cs">
+      <DependentUpon>Supervisor_externo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Vistas\Exportar_externo.resx">
       <DependentUpon>Exportar_externo.cs</DependentUpon>
@@ -204,11 +204,11 @@
     <EmbeddedResource Include="Vistas\Separador.resx">
       <DependentUpon>Separador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Supervisador_interno.resx">
-      <DependentUpon>Supervisador_interno.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\Supervisor_interno.resx">
+      <DependentUpon>Supervisor_interno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Supervisador_externo.resx">
-      <DependentUpon>Supervisador_externo.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\Supervisor_externo.resx">
+      <DependentUpon>Supervisor_externo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSets\DataSet5.xsc">
       <DependentUpon>DataSet5.xsd</DependentUpon>

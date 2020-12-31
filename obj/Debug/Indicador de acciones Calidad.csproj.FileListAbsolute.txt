@@ -12,23 +12,3 @@ C:\Users\darthvirus\source\repos\Mainco-Indicador-de-acciones-Calidad\obj\Debug\
 C:\Users\darthvirus\source\repos\Mainco-Indicador-de-acciones-Calidad\obj\Debug\Indicador de acciones Calidad.csproj.CoreCompileInputs.cache
 C:\Users\darthvirus\source\repos\Mainco-Indicador-de-acciones-Calidad\obj\Debug\Indicador de acciones Calidad.exe
 C:\Users\darthvirus\source\repos\Mainco-Indicador-de-acciones-Calidad\obj\Debug\Indicador de acciones Calidad.pdb
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\bin\Debug\Indicador de acciones Calidad.exe.config
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\bin\Debug\Indicador de acciones Calidad.exe
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\bin\Debug\Indicador de acciones Calidad.pdb
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Exportar_externo.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Filtro_externo.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Indicardor_externo.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Respuesta_externo.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Exportar_interno.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Filtro_interno.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Indicador_interno.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Properties.Resources.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Respuesta_interno.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Vistas.Separador.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Supervisador_interno.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador_de_acciones_Calidad.Vistas.Supervisor_externo.resources
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador de acciones Calidad.csproj.GenerateResource.cache
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador de acciones Calidad.csproj.CoreCompileInputs.cache
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador de acciones Calidad.exe
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador de acciones Calidad.pdb
-C:\Users\darthvirus\source\repos\Indicador de acciones Calidad\obj\Debug\Indicador de acciones Calidad.csprojAssemblyReference.cache

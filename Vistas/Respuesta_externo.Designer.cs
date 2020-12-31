@@ -32,7 +32,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,7 +50,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.plan = new System.Windows.Forms.TextBox();
+            this.Plan_Accion = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.Observaciones = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -77,7 +80,10 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.checkBox4);
             this.panel2.Controls.Add(this.checkBox3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.checkBox2);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.label8);
@@ -92,33 +98,65 @@
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.plan);
+            this.panel2.Controls.Add(this.Plan_Accion);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.Observaciones);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Location = new System.Drawing.Point(12, 99);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(921, 466);
+            this.panel2.Size = new System.Drawing.Size(921, 475);
             this.panel2.TabIndex = 3;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.checkBox4.Location = new System.Drawing.Point(551, 394);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(212, 20);
+            this.checkBox4.TabIndex = 38;
+            this.checkBox4.Text = "AUMENTAR 1 DIA ADICIONAL";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.checkBox4.Click += new System.EventHandler(this.checkBox4_Click);
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.checkBox3.Location = new System.Drawing.Point(578, 421);
+            this.checkBox3.Location = new System.Drawing.Point(551, 370);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(212, 20);
-            this.checkBox3.TabIndex = 30;
-            this.checkBox3.Text = "AUMENTAR 1 DIA ADICIONAL";
+            this.checkBox3.Size = new System.Drawing.Size(190, 20);
+            this.checkBox3.TabIndex = 37;
+            this.checkBox3.Text = "DENTRO DE LOS LIMITES";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             this.checkBox3.Click += new System.EventHandler(this.checkBox3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(548, 295);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(206, 18);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "FECHA PLAN DE ACCION";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(551, 317);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(187, 26);
+            this.dateTimePicker2.TabIndex = 35;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.checkBox2.Location = new System.Drawing.Point(578, 396);
+            this.checkBox2.Location = new System.Drawing.Point(108, 384);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(212, 20);
             this.checkBox2.TabIndex = 29;
@@ -131,7 +169,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(578, 370);
+            this.checkBox1.Location = new System.Drawing.Point(107, 358);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(190, 20);
             this.checkBox1.TabIndex = 28;
@@ -165,7 +203,7 @@
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Default;
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(106, 314);
+            this.dateTimePicker1.Location = new System.Drawing.Point(108, 317);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(187, 26);
             this.dateTimePicker1.TabIndex = 23;
@@ -175,7 +213,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(103, 293);
+            this.label10.Location = new System.Drawing.Point(105, 296);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(208, 18);
             this.label10.TabIndex = 22;
@@ -222,7 +260,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(360, 396);
+            this.button1.Location = new System.Drawing.Point(360, 420);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 45);
             this.button1.TabIndex = 7;
@@ -234,7 +272,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(622, 293);
+            this.label14.Location = new System.Drawing.Point(395, 293);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(81, 20);
             this.label14.TabIndex = 6;
@@ -245,7 +283,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(597, 316);
+            this.comboBox1.Location = new System.Drawing.Point(369, 314);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(146, 28);
             this.comboBox1.TabIndex = 5;
@@ -260,13 +298,13 @@
             this.label15.TabIndex = 4;
             this.label15.Text = "PLAN DE ACCIONES";
             // 
-            // plan
+            // Plan_Accion
             // 
-            this.plan.Location = new System.Drawing.Point(513, 188);
-            this.plan.Multiline = true;
-            this.plan.Name = "plan";
-            this.plan.Size = new System.Drawing.Size(287, 86);
-            this.plan.TabIndex = 3;
+            this.Plan_Accion.Location = new System.Drawing.Point(513, 188);
+            this.Plan_Accion.Multiline = true;
+            this.Plan_Accion.Name = "Plan_Accion";
+            this.Plan_Accion.Size = new System.Drawing.Size(287, 86);
+            this.Plan_Accion.TabIndex = 3;
             // 
             // label16
             // 
@@ -319,7 +357,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label8;
@@ -334,9 +371,13 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox plan;
+        private System.Windows.Forms.TextBox Plan_Accion;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox Observaciones;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

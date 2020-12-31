@@ -695,7 +695,7 @@ namespace Indicador_de_acciones_Calidad
                     SqlDataReader reader = conexion.reader();
                     try
                     {
-                        string consulta = "SELECT * FROM proyecto.dbo.Indicador_acciones WHERE area='" + variable + "' AND  verificado='INTERNO'"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                        string consulta = "SELECT * FROM proyecto.dbo.Indicador_acciones WHERE area='" + variable + "' AND verificado='INTERNO'"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
                         SqlCommand comando = new SqlCommand(consulta)
                         {
                             Connection = connecting //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand

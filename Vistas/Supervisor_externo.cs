@@ -10,6 +10,7 @@ namespace Indicador_de_acciones_Calidad.Vistas
         public Supervisor_externo(string valor)
         {
             InitializeComponent();
+
             mostrar(valor);
         }
         public void mostrar(string valor)
@@ -44,7 +45,7 @@ namespace Indicador_de_acciones_Calidad.Vistas
         {
             Indicardor_externo supervisador = new Indicardor_externo();
             supervisador.Show();
-            this.Hide();
+            Hide();
         }
 
         private void Supervisor_externo_FormClosing(object sender, FormClosingEventArgs e)
