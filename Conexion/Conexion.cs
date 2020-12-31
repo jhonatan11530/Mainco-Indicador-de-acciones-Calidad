@@ -2,7 +2,7 @@
 
 namespace Indicador_de_acciones_Calidad
 {
-    class Conexion
+    internal class Conexion
     {
         public SqlConnection connecting()
         {
