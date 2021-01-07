@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Indicador_de_acciones_Calidad.Vistas
@@ -60,7 +59,7 @@ namespace Indicador_de_acciones_Calidad.Vistas
                         {
 
                             notifyIcon1.Visible = true;
-                            notifyIcon1.Icon = new Icon("Y:/AREA CALIDAD/SOFTWARE/mainco.ico");
+                            notifyIcon1.Icon = Properties.Resources.mainco;
                             notifyIcon1.Text = "Notificacion";
                             notifyIcon1.Visible = true;
                             notifyIcon1.ShowBalloonTip(5000, "EXISTE INDICADORES ACCIONES CORRECTIVAS VENCIDAS", "ABRA LA APLICACION", ToolTipIcon.Info);
@@ -85,7 +84,6 @@ namespace Indicador_de_acciones_Calidad.Vistas
                             }
 
                         }
-
                         else
                         {
 
@@ -93,6 +91,13 @@ namespace Indicador_de_acciones_Calidad.Vistas
                             superv.Show();
                             Hide();
                         }
+                    }
+                    else
+                    {
+
+                        Supervisador_interno superv = new Supervisador_interno(hoy);
+                        superv.Show();
+                        Hide();
                     }
 
 
@@ -152,7 +157,7 @@ namespace Indicador_de_acciones_Calidad.Vistas
                         {
 
                             notifyIcon1.Visible = true;
-                            notifyIcon1.Icon = new Icon("Y:/AREA CALIDAD/SOFTWARE/mainco.ico");
+                            notifyIcon1.Icon = Properties.Resources.mainco;
                             notifyIcon1.Text = "Notificacion";
                             notifyIcon1.Visible = true;
                             notifyIcon1.ShowBalloonTip(5000, "EXISTE INDICADORES ACCIONES CORRECTIVAS VENCIDAS", "ABRA LA APLICACION", ToolTipIcon.Info);
@@ -179,11 +184,16 @@ namespace Indicador_de_acciones_Calidad.Vistas
 
                         else
                         {
-
                             Supervisor_externo superv = new Supervisor_externo(hoy);
                             superv.Show();
                             Hide();
                         }
+                    }
+                    else
+                    {
+                        Supervisor_externo superv = new Supervisor_externo(hoy);
+                        superv.Show();
+                        Hide();
                     }
 
 

@@ -73,7 +73,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.indicador_accionesTableAdapter = new Indicador_de_acciones_Calidad.DataSets.DataSet4TableAdapters.Indicador_accionesTableAdapter();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -516,11 +515,6 @@
             // 
             this.indicador_accionesTableAdapter.ClearBeforeFill = true;
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -599,7 +593,6 @@
         private DataSets.DataSet4 dataSet4;
         private System.Windows.Forms.BindingSource indicadoraccionesBindingSource;
         private DataSets.DataSet4TableAdapters.Indicador_accionesTableAdapter indicador_accionesTableAdapter;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mESDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nconformeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn responsableDataGridViewTextBoxColumn;
